@@ -1,0 +1,10 @@
+.top{
+	height: 40px;
+	background-color:#1f1f1f;
+}
+.card-header{
+	background-color:#3d3d3d !important;
+}
+.panel-group .panel+.panel{
+	margin-top: 0;
+}

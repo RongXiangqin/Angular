@@ -1,0 +1,119 @@
+<div class="title">
+  <span>客户管理</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;添加修改删除客户
+</div>
+<ol class="breadcrumb">
+  <li><a href="#">首页</a></li>
+  <li><a href="#">CRM管理</a></li>
+  <li class="active">客户管理</li>
+</ol>
+<div class="row">
+  <div class="col-lg-1">
+    <div class="btn-group  btn-group-lg" role="group" aria-label="...">
+      <div>
+        <button  class="btn btn-info" (click)="add()"  >
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增
+        </button>
+      </div>
+      <div>
+        <button type="button" class="btn btn-danger" aria-label="Left Align">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> 删除
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-11">
+    <form action="" method="post">
+    <div class="inp-group1">
+      
+      置业顾问：<input type="text" id="serve" [(ngModel)]="model.serve" name="serve"> 
+      客户名：<input type="text" id="name" [(ngModel)]="model.name" name="name"> 
+      客户编号：<input type="text" id="num" [(ngModel)]="model.num" name="num"> 
+      客户电话：<input type="text" id="tel" [(ngModel)]="model.tel" name="tel">
+    </div>
+    <div class="inp-group2">
+      <label for="">性别：</label>
+      <select class="form-control"  id="sex" [(ngModel)]="model.sex" name="sex">
+        <option value="女士">女士</option>
+        <option value="先生">先生</option>
+        
+      </select>
+      <label for="">类型：</label>
+      <select class="form-control" id="normal" [(ngModel)]="model.normal" name="normal">
+        <option value="单身">单身</option>
+        <option value="其他结构">其他结构</option>
+        <option value="已婚有小孩">已婚有小孩</option>
+      </select>
+      <label for="">职业：</label>
+      <select class="form-control" id="job" [(ngModel)]="model.job" name="job">
+        <option value="政府机关">政府机关</option>
+        <option value="事业单位">事业单位</option>
+        <option value="服务业">服务业</option>
+        <option value="金融业">金融业</option>
+        <option value="房地产建筑业">房地产建筑业</option>
+        <option value="广告传媒">广告传媒</option>
+
+      </select>
+      <label for="">年龄：</label>
+      <select class="form-control" id="age" [(ngModel)]="model.age" name="age">
+        <option value="31-35">31-35</option>
+        <option value="36-40">36-40</option>
+        <option value="41-45">41-45</option>
+        <option value="45-50">45-50</option>
+        <option value="50以上">50以上</option>
+      </select>
+      <input type="hidden" [(ngModel)]="model.date" id="date"  name="date" value="today | date">
+      <button type="button" class="btn btn-default search" aria-label="right Align">
+        搜索 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+      </button>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="tab">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          <input type="checkbox">
+        </th>
+        <th>客户名</th>
+        <th>编号</th>
+        <th>电话</th>
+        <th>性别</th>
+        <th>类型</th>
+        <th>年龄</th>
+        <th>职业</th>
+        <th>置业顾问</th>
+        <th>添加时间</th>
+        <th>来电数</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <tr *ngFor="let list of lists">
+        <td>
+          <input type="checkbox">
+        </td>
+        <td class="name">{{list.name}}</td>
+        <td>{{list.num}}</td>
+        <td>{{list.tel}}</td>
+        <td>{{list.sex}}</td>
+        <td>{{list.normal}}</td>
+        <td>{{list.age}}</td>
+        <td>{{list.job}}</td>
+        
+        <td class="guwen">{{list.serve}}</td>
+        <td>{{list.date | date:"M-d-yyyy"}}</td>
+        <td>{{list.telnum}}
+          <a href="#">查看来电</a>
+        </td>
+        <td>
+          <button type="button" class="btn edit" aria-label="right Align">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 编辑
+          </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
